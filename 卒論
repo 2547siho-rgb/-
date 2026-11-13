@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>アンケートへ移動しています</title>
+</head>
+<body>
+  <p>アンケートへ移動しています。</p>
+  <p id="fallback"></p>
+
+  <script>
+    const urls = [
+      "https://docs.google.com/forms/d/e/1FAIpQLSfY1_Mi6SgRwAVVMsFtgNa7bZlszIPkGzTH1SiU2KcR2ArYKQ/viewform?usp=header",
+      "https://docs.google.com/forms/d/e/1FAIpQLScE5XD8xgHTiHZPyITOv3hanYblUjTyqQ21-c1qxsinhmoGHA/viewform?usp=header"
+      // 必要ならURLを追加
+    ];
+
+    const selectedUrl = urls[Math.floor(Math.random() * urls.length)];
+
+    // 自動転送
+    window.location.replace(selectedUrl);
+
+    // 転送できない場合のリンク
+    document.getElementById("fallback").innerHTML =
+      `移動しない場合は<a href="${selectedUrl}">こちら</a>を押してください。`;
+  </script>
+</body>
+</html>
